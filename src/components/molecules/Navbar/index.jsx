@@ -16,8 +16,11 @@ import {
   MDBContainer,
 } from "mdbreact";
 
-// React Logo
-import { ReactComponent as Logo } from "../../../assets/logo.svg";
+// Rabl Logo
+import Logo from "../../../assets/logo_h60.png";
+
+//> SCSS
+import "./navbar.scss";
 //#endregion
 
 //#region > Components
@@ -52,10 +55,8 @@ class Navbar extends React.Component {
         <MDBNavbar color="white" light expand="md" fixed="top" scrolling>
           <MDBContainer>
             <MDBNavbarBrand href="/" className="py-0 font-weight-bold">
-              <Logo style={{ height: "2.5rem", width: "2.5rem" }} />
-              <strong className="align-middle">
-                MDB React Firebase Template
-              </strong>
+              <img src={Logo} alt="Rabl Logo" className="img-fluid navlogo" />
+              <strong className="align-middle"></strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler
               onClick={this.toggleCollapse("mainNavbarCollapse")}
@@ -78,10 +79,37 @@ class Navbar extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     exact
-                    to="/login"
+                    to="/products"
                     onClick={this.closeCollapse("mainNavbarCollapse")}
                   >
-                    <strong>Login</strong>
+                    <strong>Produkte</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to="/services"
+                    onClick={this.closeCollapse("mainNavbarCollapse")}
+                  >
+                    <strong>Dienstleistungen</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to="/news"
+                    onClick={this.closeCollapse("mainNavbarCollapse")}
+                  >
+                    <strong>News</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to="/products"
+                    onClick={this.closeCollapse("mainNavbarCollapse")}
+                  >
+                    <strong>Produkte</strong>
                   </MDBNavLink>
                 </MDBNavItem>
               </MDBNavbarNav>

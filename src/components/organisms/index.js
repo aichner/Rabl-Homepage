@@ -1,10 +1,10 @@
 //#region > Imports
 // Import all components to export them for easy access from parent components
-//import Foo from "./Foo";
+import Hero from "./Hero";
 //#endregion
 
 //#region > Exports
-//export { Foo };
+export { Hero };
 //#endregion
 
 /**
