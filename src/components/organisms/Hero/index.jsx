@@ -53,14 +53,25 @@ class Hero extends Component {
                   Seit über 40 Jahren erhalten Sie von uns einen kompetenten und
                   einzigartigen Service, wenn es um Ihre Sicherheit geht
                 </h6>
+                <h5 className="mb-4">Notdienst: +43 664-5131575</h5>
                 <MDBSmoothScroll
-                  to="service"
-                  offset={-150}
+                  to="products"
+                  offset={-90}
                   className="d-inline-block p-0 m-0"
                 >
-                  <MDBBtn color="default" size="lg">
+                  <MDBBtn color="red" size="lg">
                     <MDBIcon icon="angle-down" />
-                    Unsere Produkte
+                    Produkte
+                  </MDBBtn>
+                </MDBSmoothScroll>
+                <MDBSmoothScroll
+                  to="services"
+                  offset={-90}
+                  className="d-inline-block p-0 m-0"
+                >
+                  <MDBBtn color="blue" size="lg">
+                    <MDBIcon icon="angle-down" />
+                    Dienstleistungen
                   </MDBBtn>
                 </MDBSmoothScroll>
               </MDBCol>

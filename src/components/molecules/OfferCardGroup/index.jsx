@@ -24,7 +24,7 @@ class OfferCardGroup extends React.Component {
         <MDBCard>
           <MDBCardImage
             src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
-            alt="MDBCard image cap"
+            alt="Alarm und Tresor Image"
             top
             hover
             overlay="white-slight"
@@ -44,7 +44,7 @@ class OfferCardGroup extends React.Component {
         <MDBCard>
           <MDBCardImage
             src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg"
-            alt="MDBCard image cap"
+            alt="mySafe Image"
             top
             hover
             overlay="white-slight"
@@ -64,7 +64,7 @@ class OfferCardGroup extends React.Component {
         <MDBCard>
           <MDBCardImage
             src="https://mdbootstrap.com/img/Photos/Others/images/77.jpg"
-            alt="MDBCard image cap"
+            alt="Seccor CodeLoxx"
             top
             hover
             overlay="white-slight"

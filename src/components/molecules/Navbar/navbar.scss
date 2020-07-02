@@ -3,6 +3,12 @@
   color: white;
   .container {
     max-width: 86%;
+
+    @media only screen and (max-device-width: 40em) {
+      .navlogo {
+        max-width: 7em;
+      }
+    }
   }
 }
 /**

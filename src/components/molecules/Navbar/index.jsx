@@ -56,7 +56,6 @@ class Navbar extends React.Component {
           <MDBContainer>
             <MDBNavbarBrand href="/" className="py-0 font-weight-bold">
               <img src={Logo} alt="Rabl Logo" className="img-fluid navlogo" />
-              <strong className="align-middle"></strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler
               onClick={this.toggleCollapse("mainNavbarCollapse")}
@@ -79,7 +78,7 @@ class Navbar extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     exact
-                    to="/products"
+                    to="#products"
                     onClick={this.closeCollapse("mainNavbarCollapse")}
                   >
                     <strong>Produkte</strong>
@@ -88,7 +87,7 @@ class Navbar extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     exact
-                    to="/services"
+                    to="#services"
                     onClick={this.closeCollapse("mainNavbarCollapse")}
                   >
                     <strong>Dienstleistungen</strong>
@@ -101,15 +100,6 @@ class Navbar extends React.Component {
                     onClick={this.closeCollapse("mainNavbarCollapse")}
                   >
                     <strong>News</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    exact
-                    to="/products"
-                    onClick={this.closeCollapse("mainNavbarCollapse")}
-                  >
-                    <strong>Produkte</strong>
                   </MDBNavLink>
                 </MDBNavItem>
               </MDBNavbarNav>
