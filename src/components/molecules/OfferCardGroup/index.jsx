@@ -18,70 +18,39 @@ import {
 
 //#region > Components
 class OfferCardGroup extends React.Component {
+  // ButtonClick Handler. Not in use as of now
+  goToOffer(oid) {
+    console.log(oid);
+  }
+
   render() {
+    // Offers to be rendered. Limit to 3 for best results
+    const { offers } = this.props;
+
     return (
       <MDBCardGroup className="offers">
-        <MDBCard>
-          <MDBCardImage
-            src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
-            alt="Alarm und Tresor Image"
-            top
-            hover
-            overlay="white-slight"
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">Alarm und Tresor</MDBCardTitle>
-            <MDBCardText>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            </MDBCardText>
-            <MDBBtn color="primary" size="md">
-              mehr erfahren
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-
-        <MDBCard>
-          <MDBCardImage
-            src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg"
-            alt="mySafe Image"
-            top
-            hover
-            overlay="white-slight"
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">mySafe</MDBCardTitle>
-            <MDBCardText>
-              Der Basi Tresor mySafe 350 mit Fingerscan und Alarmfunktion ist
-              ein echter Blickfang. Er bietet neben dem großartigen Designeinen
-              hohen Schutz für Ihre Wertgegenstände.
-            </MDBCardText>
-            <MDBBtn color="primary" size="md">
-              mehr erfahren
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-
-        <MDBCard>
-          <MDBCardImage
-            src="https://mdbootstrap.com/img/Photos/Others/images/77.jpg"
-            alt="Seccor CodeLoxx"
-            top
-            hover
-            overlay="white-slight"
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">Seccor CodeLoxx</MDBCardTitle>
-            <MDBCardText>
-              Ob privat oder gewerblich- <br />
-              Mit dem elektronischen Doppelknaufzylinder CodeLoxx genießen Sie
-              maximale Sicherheit und Flexibilität
-            </MDBCardText>
-            <MDBBtn color="primary" size="md">
-              mehr erfahren
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
+        {offers.map((o, i) => (
+          <MDBCard key={i}>
+            <MDBCardImage
+              src={o.image}
+              alt={o.title}
+              top
+              hover
+              overlay="white-slight"
+            />
+            <MDBCardBody>
+              <MDBCardTitle tag="h5">{o.title}</MDBCardTitle>
+              <MDBCardText>{o.content}</MDBCardText>
+              <MDBBtn
+                color="primary"
+                size="md"
+                onClick={() => this.goToOffer(o.id)}
+              >
+                mehr erfahren
+              </MDBBtn>
+            </MDBCardBody>
+          </MDBCard>
+        ))}
       </MDBCardGroup>
     );
   }

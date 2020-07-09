@@ -33,12 +33,38 @@ import "./HomePage.scss";
 import { Hero, Products, Services } from "../../organisms";
 //#endregion
 
+//#region > Data
+const offers = [
+  {
+    id: "asdf",
+    title: "Alarm und Tresor",
+    image: "https://mdbootstrap.com/img/Photos/Others/images/49.jpg",
+    content:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+  },
+  {
+    id: "ghjk",
+    title: "mySafe",
+    image: "https://mdbootstrap.com/img/Photos/Others/images/48.jpg",
+    content:
+      "Der Basi Tresor mySafe 350 mit Fingerscan und Alarmfunktion ist ein echter Blickfang. Er bietet neben dem großartigen Design einen hohen Schutz für Ihre Wertgegenstände.",
+  },
+  {
+    id: "lqwe",
+    title: "Seccor CodeLoxx",
+    image: "https://mdbootstrap.com/img/Photos/Others/images/50.jpg",
+    content:
+      "Ob privat oder gewerblich- <br /> Mit dem elektronischen Doppelknaufzylinder CodeLoxx genießen Sie maximale Sicherheit und Flexibilität",
+  },
+];
+//#endregion
+
 //#region > Components
 class HomePage extends React.Component {
   render() {
     return (
       <>
-        <Hero />
+        <Hero offers={offers} />
         <MDBContainer>
           <h2 className="h1-responsive font-weight-bold text-center my-5">
             Was bieten wir Ihnen?

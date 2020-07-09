@@ -78,7 +78,7 @@ class Hero extends Component {
                   </MDBSmoothScroll>
                 </MDBCol>
                 <MDBCol md="6" className="mb-4 d-none d-sm-block">
-                  <OfferCardGroup />
+                  <OfferCardGroup offers={this.props.offers} />
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
