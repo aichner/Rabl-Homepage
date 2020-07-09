@@ -20,6 +20,8 @@ import {
 } from "mdbreact";
 import { OfferCardGroup } from "../../molecules";
 
+//> Images
+import storefront from "../../../assets/content/storefront.jpg";
 //#endregion
 
 //#region > Components
@@ -28,58 +30,59 @@ class Hero extends Component {
   render() {
     return (
       <div id="hero">
-        <MDBView fixed>
-          <MDBMask />
-          <MDBContainer
-            style={{
-              height: "100%",
-              width: "100%",
-              paddingTop: "10rem",
-              paddingBottom: "5rem",
-            }}
-            fluid
-          >
-            <MDBRow className="flex-center">
-              <MDBCol
-                md="4"
-                className="black-text text-center text-md-left mb-5"
-              >
-                <h1 className="display-4 font-weight-bold">
-                  Herzlich Willkommen
-                </h1>
-                <h3>bei B.Rabl Sicherheitstechnik GmbH</h3>
-                <hr className="hr-dark" />
-                <h6 className="mb-4">
-                  Seit über 40 Jahren erhalten Sie von uns einen kompetenten und
-                  einzigartigen Service, wenn es um Ihre Sicherheit geht
-                </h6>
-                <h5 className="mb-4">Notdienst: +43 664-5131575</h5>
-                <MDBSmoothScroll
-                  to="products"
-                  offset={-90}
-                  className="d-inline-block p-0 m-0"
+        <MDBView src={storefront} fixed>
+          <MDBMask overlay="black-strong">
+            <MDBContainer
+              style={{
+                height: "100%",
+                width: "100%",
+                paddingTop: "10rem",
+                paddingBottom: "5rem",
+              }}
+              fluid
+            >
+              <MDBRow className="flex-center">
+                <MDBCol
+                  md="4"
+                  className="white-text text-center text-md-left mb-5"
                 >
-                  <MDBBtn color="red" size="lg">
-                    <MDBIcon icon="angle-down" />
-                    Produkte
-                  </MDBBtn>
-                </MDBSmoothScroll>
-                <MDBSmoothScroll
-                  to="services"
-                  offset={-90}
-                  className="d-inline-block p-0 m-0"
-                >
-                  <MDBBtn color="blue" size="lg">
-                    <MDBIcon icon="angle-down" />
-                    Dienstleistungen
-                  </MDBBtn>
-                </MDBSmoothScroll>
-              </MDBCol>
-              <MDBCol md="6" className="mb-4 d-none d-sm-block">
-                <OfferCardGroup />
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
+                  <h1 className="display-4 font-weight-bold">
+                    Sicherheit hat einen Namen
+                  </h1>
+                  <h3>B.Rabl Sicherheitstechnik GmbH</h3>
+                  <hr className="hr-dark" />
+                  <h6 className="mb-4">
+                    Seit über 40 Jahren erhalten Sie von uns einen kompetenten
+                    und einzigartigen Service, wenn es um Ihre Sicherheit geht
+                  </h6>
+                  <h5 className="mb-4">Notdienst: +43 664-5131575</h5>
+                  <MDBSmoothScroll
+                    to="products"
+                    offset={-30}
+                    className="d-inline-block p-0 m-0"
+                  >
+                    <MDBBtn color="red" size="lg">
+                      <MDBIcon icon="angle-down" />
+                      Produkte
+                    </MDBBtn>
+                  </MDBSmoothScroll>
+                  <MDBSmoothScroll
+                    to="services"
+                    offset={-30}
+                    className="d-inline-block p-0 m-0"
+                  >
+                    <MDBBtn color="blue" size="lg">
+                      <MDBIcon icon="angle-down" />
+                      Dienstleistungen
+                    </MDBBtn>
+                  </MDBSmoothScroll>
+                </MDBCol>
+                <MDBCol md="6" className="mb-4 d-none d-sm-block">
+                  <OfferCardGroup />
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBMask>
         </MDBView>
       </div>
     );

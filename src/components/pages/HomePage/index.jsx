@@ -40,7 +40,6 @@ class HomePage extends React.Component {
       <>
         <Hero />
         <MDBContainer>
-          <hr />
           <h2 className="h1-responsive font-weight-bold text-center my-5">
             Was bieten wir Ihnen?
           </h2>

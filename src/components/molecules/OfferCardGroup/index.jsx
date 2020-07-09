@@ -52,8 +52,9 @@ class OfferCardGroup extends React.Component {
           <MDBCardBody>
             <MDBCardTitle tag="h5">mySafe</MDBCardTitle>
             <MDBCardText>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              Der Basi Tresor mySafe 350 mit Fingerscan und Alarmfunktion ist
+              ein echter Blickfang. Er bietet neben dem großartigen Designeinen
+              hohen Schutz für Ihre Wertgegenstände.
             </MDBCardText>
             <MDBBtn color="primary" size="md">
               mehr erfahren
@@ -72,8 +73,9 @@ class OfferCardGroup extends React.Component {
           <MDBCardBody>
             <MDBCardTitle tag="h5">Seccor CodeLoxx</MDBCardTitle>
             <MDBCardText>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              Ob privat oder gewerblich- <br />
+              Mit dem elektronischen Doppelknaufzylinder CodeLoxx genießen Sie
+              maximale Sicherheit und Flexibilität
             </MDBCardText>
             <MDBBtn color="primary" size="md">
               mehr erfahren
