@@ -13,6 +13,7 @@ import {
   MessagePage,
   LoginPage,
   ProfilePage,
+  NewsPage,
 } from "./components/pages";
 
 class Routes extends React.Component {
@@ -22,11 +23,7 @@ class Routes extends React.Component {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/profile" component={ProfilePage} />
-        <Route
-          exact
-          path="/about"
-          render={(props) => <MessagePage {...props} />}
-        />
+        <Route exact path="/news" render={(props) => <NewsPage {...props} />} />
         <Route
           render={function () {
             return <h1>Not Found</h1>;

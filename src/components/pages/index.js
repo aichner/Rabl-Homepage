@@ -4,10 +4,11 @@ import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import MessagePage from "./MessagePage";
 import ProfilePage from "./ProfilePage";
+import NewsPage from "./NewsPage";
 //#endregion
 
 //#region > Exports
-export { HomePage, LoginPage, MessagePage, ProfilePage };
+export { HomePage, LoginPage, MessagePage, ProfilePage, NewsPage };
 //#endregion
 
 /**

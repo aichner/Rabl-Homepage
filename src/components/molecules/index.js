@@ -3,10 +3,11 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import OfferCardGroup from "./OfferCardGroup";
+import NewsPost from "./NewsPost";
 //#endregion
 
 //#region > Exports
-export { Footer, Navbar, OfferCardGroup };
+export { Footer, Navbar, OfferCardGroup, NewsPost };
 //#endregion
 
 /**
