@@ -5,27 +5,13 @@ import React from "react";
 
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
-import {
-  MDBEdgeHeader,
-  MDBFreeBird,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBCardBody,
-  MDBIcon,
-  MDBCard,
-  MDBCardTitle,
-  MDBCardImage,
-  MDBCardText,
-} from "mdbreact";
+import { MDBContainer, MDBCol, MDBRow, MDBIcon } from "mdbreact";
 
-//> Images
-// Logo of MDB React
-import MDBLogo from "../../../assets/mdb-react-small.png";
-// Logo of Advertisement Agency Christian Aichner
-import AgencyLogo from "../../../assets/agency-small.png";
-// Image of someone coding
-import Projects from "../../../assets/content/projects.jpg";
+//> React Lottie
+// Framework for animations
+import Lottie from "react-lottie";
+// Lotties
+import * as lockAnimation from "../../../assets/content/lottie/lockanim.json";
 
 //> CSS
 import "./HomePage.scss";
@@ -59,9 +45,26 @@ const offers = [
 ];
 //#endregion
 
+//#region > Config
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+//#endregion
+
 //#region > Components
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { isStopped: false, isPaused: false };
+  }
   render() {
+    console.log(defaultOptions);
+
     return (
       <>
         <Hero offers={offers} />
@@ -71,15 +74,20 @@ class HomePage extends React.Component {
           </h2>
           <MDBRow>
             <MDBCol lg="5" className="text-center text-lg-left">
-              <img
-                className="img-fluid"
-                src="https://mdbootstrap.com/img/Photos/Others/screens-section.jpg"
-                alt=""
+              <Lottie
+                options={{
+                  ...defaultOptions,
+                  animationData: lockAnimation.default,
+                }}
+                isPaused={this.state.isPaused}
+                height={400}
+                width={400}
               />
             </MDBCol>
             <MDBCol lg="7">
               <MDBRow className="mb-3">
                 <MDBCol size="1">
+                  {" "}
                   <MDBIcon icon="share" size="lg" className="red-text" />
                 </MDBCol>
                 <MDBCol xl="10" md="11" size="10">
