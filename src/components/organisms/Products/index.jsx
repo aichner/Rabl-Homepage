@@ -21,7 +21,10 @@ import "./products.scss";
 //#region > Components
 class Products extends Component {
   state = {};
+
   render() {
+    const { data } = this.props;
+
     return (
       <div id="products">
         <MDBContainer>
@@ -33,173 +36,30 @@ class Products extends Component {
             </MDBCol>
           </MDBRow>
           <MDBRow className="d-flex justify-content-center">
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Alarmanlagen</strong>
-                    </MDBCardTitle>
+            {data.map((p, i) => {
+              return (
+                <MDBCol md="4" key={i}>
+                  <MDBCard
+                    className="card-image"
+                    style={{
+                      backgroundImage: "url(" + p.image + ")",
+                    }}
+                  >
+                    <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
+                      <div>
+                        <MDBCardTitle tag="h3" className="pt-2">
+                          <strong>{p.title}</strong>
+                        </MDBCardTitle>
 
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Videoüberwachung</strong>
-                    </MDBCardTitle>
-
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Digitale Türspione</strong>
-                    </MDBCardTitle>
-
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Tresore & Safes</strong>
-                    </MDBCardTitle>
-
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Elektronische Schließsysteme</strong>
-                    </MDBCardTitle>
-
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Mechanische Schließsysteme</strong>
-                    </MDBCardTitle>
-
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Sicherheitsbeschläge</strong>
-                    </MDBCardTitle>
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Schlösser</strong>
-                    </MDBCardTitle>
-
-                    <MDBBtn color="red">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
+                        <MDBBtn color="red" onClick={() => console.log(p.link)}>
+                          Mehr erfahren <MDBIcon icon="angle-right" />
+                        </MDBBtn>
+                      </div>
+                    </div>
+                  </MDBCard>
+                </MDBCol>
+              );
+            })}
           </MDBRow>
         </MDBContainer>
       </div>

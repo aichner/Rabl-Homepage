@@ -15,12 +15,16 @@ import {
 
 //> SCSS
 import "./services.scss";
+import { constants } from "react-redux-firebase";
 //#endregion
 
 //#region > Components
 class Services extends Component {
   state = {};
+
   render() {
+    const { data } = this.props;
+
     return (
       <div id="services">
         <MDBContainer>
@@ -32,48 +36,30 @@ class Services extends Component {
             </MDBCol>
           </MDBRow>
           <MDBRow className="d-flex justify-content-center">
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('../../../assets/content/emergencyservice.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Not- & Aufsperrdienst</strong>
-                    </MDBCardTitle>
+            {data.map((s, i) => {
+              return (
+                <MDBCol md="4" key={i}>
+                  <MDBCard
+                    className="card-image"
+                    style={{
+                      backgroundImage: "url(" + s.image + ")",
+                    }}
+                  >
+                    <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
+                      <div>
+                        <MDBCardTitle tag="h3" className="pt-2">
+                          <strong>{s.title}</strong>
+                        </MDBCardTitle>
 
-                    <MDBBtn color="blue">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol md="4">
-              <MDBCard
-                className="card-image"
-                style={{
-                  backgroundImage:
-                    "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')",
-                }}
-              >
-                <div className="text-white text-center align-items-center rgba-black-strong py-5 px-4">
-                  <div>
-                    <MDBCardTitle tag="h3" className="pt-2">
-                      <strong>Schlüsseldienst</strong>
-                    </MDBCardTitle>
-
-                    <MDBBtn color="blue">
-                      Mehr erfahren <MDBIcon icon="angle-right" />
-                    </MDBBtn>
-                  </div>
-                </div>
-              </MDBCard>
-            </MDBCol>
+                        <MDBBtn color="red" onClick={() => console.log(s.link)}>
+                          Mehr erfahren <MDBIcon icon="angle-right" />
+                        </MDBBtn>
+                      </div>
+                    </div>
+                  </MDBCard>
+                </MDBCol>
+              );
+            })}
           </MDBRow>
         </MDBContainer>
       </div>
