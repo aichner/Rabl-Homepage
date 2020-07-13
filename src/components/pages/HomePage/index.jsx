@@ -13,6 +13,10 @@ import Lottie from "react-lottie";
 // Lotties
 import * as lockAnimation from "../../../assets/content/lottie/lockanim.json";
 
+//> Waypoint
+// Enables hooks when scrolling
+import { Waypoint } from "react-waypoint";
+
 //> CSS
 import "./HomePage.scss";
 
@@ -43,12 +47,78 @@ const offers = [
       "Ob privat oder gewerblich- <br /> Mit dem elektronischen Doppelknaufzylinder CodeLoxx genießen Sie maximale Sicherheit und Flexibilität",
   },
 ];
+
+const products = [
+  {
+    title: "Alarmanlagen",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Videoüberwachung",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Digitale Türspione",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Tresore & Safes",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Elekrtronische Schließsysteme",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Mechanische Schließsysteme",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Sicherheitsbeschläge",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Schlösser",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+];
+
+const services = [
+  {
+    title: "Not- & Aufsperrdienst",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+  {
+    title: "Schlüsseldienst",
+    link: "alksjdlöfa",
+    image:
+      "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg",
+  },
+];
 //#endregion
 
 //#region > Config
 const defaultOptions = {
-  loop: true,
-  autoplay: true,
+  loop: false,
+  autoplay: false,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice",
   },
@@ -60,11 +130,17 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { isStopped: false, isPaused: false };
+    this.state = { isStopped: false, isPaused: true, direction: 1 };
   }
-  render() {
-    console.log(defaultOptions);
 
+  unpause() {
+    if (this.state?.isPaused) this.setState({ isPaused: false });
+  }
+  pause() {
+    if (!this.state?.isPaused) this.setState({ isPaused: true });
+  }
+
+  render() {
     return (
       <>
         <Hero offers={offers} />
@@ -78,10 +154,21 @@ class HomePage extends React.Component {
                 options={{
                   ...defaultOptions,
                   animationData: lockAnimation.default,
+                  name: "lockAnimation",
                 }}
+                eventListeners={[
+                  {
+                    eventName: "complete",
+                    callback: () => console.log("Completed"),
+                  },
+                ]}
                 isPaused={this.state.isPaused}
                 height={400}
                 width={400}
+              />
+              <Waypoint
+                onEnter={() => this.unpause()}
+                onLeave={() => this.pause()}
               />
             </MDBCol>
             <MDBCol lg="7">
@@ -135,8 +222,8 @@ class HomePage extends React.Component {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-        <Products />
-        <Services />
+        <Products data={products} />
+        <Services data={services} />
         <div>
           <h2 className="h1-responsive font-weight-bold text-center mt-5 mb-3">
             Weitere Fragen?

@@ -2,6 +2,8 @@
 //> React
 // Contains all the functionality necessary to define React components
 import React from "react";
+// React Router DOM bindings
+import { withRouter } from "react-router-dom";
 
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
@@ -14,7 +16,12 @@ import {
   MDBNavItem,
   MDBNavLink,
   MDBContainer,
+  MDBSmoothScroll,
 } from "mdbreact";
+
+//> React Router Hash Link
+// Enables redirects to #links
+import { HashLink as Link } from "react-router-hash-link";
 
 // Rabl Logo
 import Logo from "../../../assets/logo_h60.png";
@@ -35,9 +42,16 @@ class Navbar extends React.Component {
     }));
 
   closeCollapse = (collapseID) => () => {
-    window.scrollTo(0, 0);
-
     this.state.collapseID === collapseID && this.setState({ collapseID: "" });
+  };
+
+  scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   render() {
@@ -49,6 +63,9 @@ class Navbar extends React.Component {
       />
     );
     const { collapseID } = this.state;
+    const { location } = this.props;
+
+    console.log(window.location.pathname);
 
     return (
       <div>
@@ -76,22 +93,46 @@ class Navbar extends React.Component {
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink
-                    exact
-                    to="#products"
-                    onClick={this.closeCollapse("mainNavbarCollapse")}
-                  >
-                    <strong>Produkte</strong>
-                  </MDBNavLink>
+                  {location.pathname === "/" ? (
+                    <MDBSmoothScroll
+                      to="products"
+                      onClick={this.closeCollapse("mainNavbarCollapse")}
+                      active
+                    >
+                      <strong>Produkte</strong>
+                    </MDBSmoothScroll>
+                  ) : (
+                    <Link
+                      className="nav-link"
+                      smooth
+                      to="/#products"
+                      scroll={(el) => this.scrollWithOffset(el, 70)}
+                      onClick={this.closeCollapse("mainNavbarCollapse")}
+                    >
+                      <strong>Produkte</strong>
+                    </Link>
+                  )}
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink
-                    exact
-                    to="#services"
-                    onClick={this.closeCollapse("mainNavbarCollapse")}
-                  >
-                    <strong>Dienstleistungen</strong>
-                  </MDBNavLink>
+                  {location.pathname === "/" ? (
+                    <MDBSmoothScroll
+                      to="services"
+                      onClick={this.closeCollapse("mainNavbarCollapse")}
+                      active
+                    >
+                      <strong>Dienstleistungen</strong>
+                    </MDBSmoothScroll>
+                  ) : (
+                    <Link
+                      className="nav-link"
+                      smooth
+                      to="/#services"
+                      scroll={(el) => this.scrollWithOffset(el, 70)}
+                      onClick={this.closeCollapse("mainNavbarCollapse")}
+                    >
+                      <strong>Dienstleistungen</strong>
+                    </Link>
+                  )}
                 </MDBNavItem>
                 <MDBNavItem>
                   <MDBNavLink
@@ -114,7 +155,7 @@ class Navbar extends React.Component {
 //#endregion
 
 //#region > Exports
-export default Navbar;
+export default withRouter(Navbar);
 //#endregion
 
 /**
