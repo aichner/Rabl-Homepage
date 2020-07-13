@@ -65,8 +65,6 @@ class Navbar extends React.Component {
     const { collapseID } = this.state;
     const { location } = this.props;
 
-    console.log(window.location.pathname);
-
     return (
       <div>
         <MDBNavbar color="white" light expand="md" fixed="top" scrolling>
@@ -84,13 +82,15 @@ class Navbar extends React.Component {
             >
               <MDBNavbarNav right>
                 <MDBNavItem>
-                  <MDBNavLink
-                    exact
-                    to="/"
-                    onClick={this.closeCollapse("mainNavbarCollapse")}
-                  >
-                    <strong>Home</strong>
-                  </MDBNavLink>
+                  {location.pathname === "/" ? (
+                    <MDBSmoothScroll to="hero" active>
+                      <strong>Home</strong>
+                    </MDBSmoothScroll>
+                  ) : (
+                    <MDBNavLink exact to="/">
+                      <strong>Home</strong>
+                    </MDBNavLink>
+                  )}
                 </MDBNavItem>
                 <MDBNavItem>
                   {location.pathname === "/" ? (

@@ -156,12 +156,6 @@ class HomePage extends React.Component {
                   animationData: lockAnimation.default,
                   name: "lockAnimation",
                 }}
-                eventListeners={[
-                  {
-                    eventName: "complete",
-                    callback: () => console.log("Completed"),
-                  },
-                ]}
                 isPaused={this.state.isPaused}
                 height={400}
                 width={400}
